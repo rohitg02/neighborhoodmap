@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Neighborhood Map</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <link rel="stylesheet" href="css/style.css">
+
+   </head>
+   <body>
+
+      <div class="container">
+         <div id = "display" class="options-box">
+            <div>
+               <input id="searchbox" type="search" placeholder="Search.." data-bind="value: searchInput, valueUpdate: 'keyup'" autocomplete="off">
+               <ul data-bind = "foreach :locationList()">
+                  <li data-bind = "visible: $data.visible">
+                     <b data-bind = "text: $data.title, click: bounce"></b>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <span id='list' class = "nonResponsive" value="notVisible">☰ </span>
+      </div>
+      <div id="map"> </div>
+      <script src = "js/knockout/knockout.js"></script>
+      <script src=" js/jquery/jquery.min.js"></script>
+      <script src = "js/viewmodel.js"></script>
+      <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBTCMwjjULO65F7AXgbt_btXVi68_IOFyQ&v=3&callback=startApp" onerror="myErrorFunction()"></script>
+   </body>
+</html>
